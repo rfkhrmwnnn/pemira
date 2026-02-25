@@ -80,7 +80,7 @@ export default async function AdminDashboardPage() {
             <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
               <div>
                 <h1 className="text-3xl font-black text-slate-900 tracking-tight">Console Administrasi</h1>
-                <p className="text-slate-500 font-medium">Panel kontrol pusat PEMIRA IKMI 20256/p>
+                <p className="text-slate-500 font-medium">Panel kontrol pusat PEMIRA IKMI 2025</p>
               </div>
               <button className="btn-primary">
                 <Plus className="w-5 h-5" />
