@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
 import { useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import { Search, ShieldCheck, CheckCircle2, AlertTriangle, Loader2, Info } from "lucide-react";
