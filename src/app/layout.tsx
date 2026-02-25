@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "PEMIRA DIGITAL IKMI 2025 | STMIK IKMI Cirebon",
+  title: "PEMIRA DIGITAL IKMI 2026 | STMIK IKMI Cirebon",
   description: "Official Institutional Digital Voting System for STMIK IKMI Cirebon. Secure, Verifiable, and Governance-Controlled.",
   manifest: "/manifest.json",
   appleWebApp: {

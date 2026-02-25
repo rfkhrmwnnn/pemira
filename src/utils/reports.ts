@@ -49,7 +49,7 @@ export async function generateCertifiedReport(election: any, results: any[], sna
   // Footer
   doc.setFont("helvetica", "italic");
   doc.setFontSize(8);
-  doc.text("Dokumen ini dihasilkan secara otomatis oleh sistem PEMIRA DIGITAL IKMI 2025.", 105, 280, { align: "center" });
+  doc.text("Dokumen ini dihasilkan secara otomatis oleh sistem PEMIRA DIGITAL IKMI 2026.", 105, 280, { align: "center" });
   doc.text("Keaslian dokumen dapat diverifikasi melalui halaman /verify dengan menggunakan Merkle Root di atas.", 105, 285, { align: "center" });
 
   doc.save(`${docNumber}.pdf`);
