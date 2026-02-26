@@ -26,8 +26,8 @@ export default function RegisterPage() {
     setError(null);
 
     // Basic validation
-    if (!email.endsWith("@ikmi.ac.id")) {
-      setError("Gunakan email institusi (@ikmi.ac.id)");
+    if (!email.endsWith("@ikmi.ac.id") && !email.endsWith("@gmail.com")) {
+      setError("Gunakan email institusi (@ikmi.ac.id) atau @gmail.com");
       setLoading(false);
       return;
     }
@@ -145,7 +145,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Email Institusi</label>
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Email</label>
               <div className="relative group">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
                 <input
@@ -153,7 +153,7 @@ export default function RegisterPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-900"
-                  placeholder="nim@ikmi.ac.id"
+                  placeholder="email@ikmi.ac.id atau @gmail.com"
                   required
                 />
               </div>
