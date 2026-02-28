@@ -82,10 +82,16 @@ export default async function AdminDashboardPage() {
                 <h1 className="text-3xl font-black text-slate-900 tracking-tight">Console Administrasi</h1>
                 <p className="text-slate-500 font-medium">Panel kontrol pusat PEMIRA IKMI 2026</p>
               </div>
-              <button className="btn-primary">
-                <Plus className="w-5 h-5" />
-                Buat Pemilihan Baru
-              </button>
+              <div className="flex gap-3">
+                <Link href="/admin/users" className="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-sm">
+                  <Users className="w-4 h-4" />
+                  Import Mahasiswa
+                </Link>
+                <button className="btn-primary flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold">
+                  <Plus className="w-4 h-4" />
+                  Buat Pemilihan Baru
+                </button>
+              </div>
             </header>
 
             {/* Quick Stats */}

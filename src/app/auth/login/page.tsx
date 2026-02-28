@@ -9,7 +9,7 @@ import { Lock, Mail, Loader2, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
+  const [nim, setNim] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -21,8 +21,15 @@ export default function LoginPage() {
     setLoading(true);
     setError(null);
 
+    const cleanNim = nim.trim();
+    if (!cleanNim) {
+      setError("NIM tidak boleh kosong");
+      setLoading(false);
+      return;
+    }
+
     const { error } = await supabase.auth.signInWithPassword({
-      email,
+      email: `${cleanNim}@student.ikmi.ac.id`,
       password,
     });
 
@@ -59,15 +66,14 @@ export default function LoginPage() {
             )}
 
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Email</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Identitas Mahasiswa</label>
+              <div className="relative group">
                 <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-900"
-                  placeholder="email@example.com"
+                  type="text"
+                  value={nim}
+                  onChange={(e) => setNim(e.target.value)}
+                  className="w-full pl-5 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-900"
+                  placeholder="Masukkan NIM Anda"
                   required
                 />
               </div>

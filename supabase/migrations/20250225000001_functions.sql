@@ -55,16 +55,16 @@ begin
     end if;
   end if;
 
-  -- 5. Validate UKM membership
-  if v_org_type = 'UKM' then
-    select exists (
-      select 1 from ukm_members 
-      where ukm_id = v_ukm_id and profile_id = v_voter_id
-    ) into v_is_ukm_member;
-    if not v_is_ukm_member then
-      raise exception 'Not a member of this UKM';
-    end if;
-  end if;
+  -- 5. Validate UKM membership (Disabled: All students can vote for UKM)
+  -- if v_org_type = 'UKM' then
+  --   select exists (
+  --     select 1 from ukm_members 
+  --     where ukm_id = v_ukm_id and profile_id = v_voter_id
+  --   ) into v_is_ukm_member;
+  --   if not v_is_ukm_member then
+  --     raise exception 'Not a member of this UKM';
+  --   end if;
+  -- end if;
 
   -- 6. Generate hashes (SHA-256 chain)
   -- Get previous vote hash in this election
@@ -119,12 +119,10 @@ begin
 
   voted_count := (select count(*) from votes where election_id = p_election_id);
 
-  if v_org_type = 'BEM' or v_org_type = 'DPM' then
+  if v_org_type = 'BEM' or v_org_type = 'DPM' or v_org_type = 'UKM' then
     eligible_count := (select count(*) from profiles);
   elsif v_org_type = 'HIMA' then
     eligible_count := (select count(*) from profiles where jurusan_id = v_jurusan_id);
-  elsif v_org_type = 'UKM' then
-    eligible_count := (select count(*) from ukm_members where ukm_id = v_ukm_id);
   end if;
 
   return next;
